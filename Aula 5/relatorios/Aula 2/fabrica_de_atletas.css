@@ -1,0 +1,108 @@
+/* fabrica_de_atletas.css */
+body {
+    background-color: #171C30;
+    color: #DCE0E1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #2B3849;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #5A6B73;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #DCE0E1;
+}
+
+.header p {
+    color: #93A5AF;
+}
+
+fieldset {
+    border: 1px solid #5A6B73;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    color: #205F81;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #DCE0E1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #5A6B73;
+    border-radius: 5px;
+    background-color: #171C30;
+    color: #DCE0E1;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    background-color: #205F81;
+    color: #DCE0E1;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5A6B73;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #93A5AF;
+    display: block;
+    margin-top: 5px;
+}

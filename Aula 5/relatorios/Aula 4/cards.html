@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Hetfield</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+background-image:url('james.png');
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+min-height:100vh;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial, sans-serif;
+margin:0;
+padding:20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:25px;
+padding-top:180px;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));
+height: 100svh;
+}
+
+/* MENU */
+
+.menu{
+position:fixed;
+top:0;
+left:0;
+right:0;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.4);
+padding:15px 20px;
+display:flex;
+justify-content:center;
+gap:30px;
+z-index:1000;
+margin: 0px;
+}
+
+.menu li{
+list-style:none;
+}
+
+.menu a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+padding:8px 16px;
+border-radius:25px;
+transition:0.3s;
+}
+
+.menu a:hover{
+background:rgba(255,255,255,0.15);
+}
+
+/* CABEÇALHO */
+
+.header{
+text-align:center;
+color:white;
+max-width:800px;
+}
+
+.header h1{
+font-size:2.5rem;
+margin-bottom:10px;
+letter-spacing:2px;
+}
+
+.header p{
+font-size:1rem;
+line-height:1.5;
+opacity:0.9;
+}
+
+/* CARDS */
+
+.cards-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+width:100%;
+max-width:900px;
+}
+
+article.card{
+background-color:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:25px;
+width:90%;
+max-width:350px;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+transition:0.3s;
+text-align:center;
+color:white;
+}
+
+article.card:hover{
+transform:translateY(-10px);
+}
+
+article.card h2{
+margin:0 0 10px 0;
+font-size:1.5rem;
+}
+
+article.card p{
+font-size:0.95rem;
+margin-bottom:15px;
+}
+
+audio{
+width:100%;
+}
+
+footer{
+margin-top:15px;
+font-size:0.8rem;
+opacity:0.8;
+border-top:1px solid rgba(255,255,255,0.3);
+padding-top:10px;
+}
+
+@media(max-width:768px){
+
+.menu{
+flex-wrap:wrap;
+gap:15px;
+}
+
+body{
+padding-top:220px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<ul class="menu">
+<li><a href="">Início</a></li>
+<li><a href="">Sobre</a></li>
+<li><a href="">Agenda</a></li>
+<li><a href="">Músicas</a></li>
+<li><a href="">Contatos</a></li>
+</ul>
+
+
+<div class="header">
+<h1>James Hetfield do Sertão</h1>
+<p>
+Em um universo paralelo, James Hetfield trocou as guitarras pesadas do heavy metal
+por uma mistura inesperada: riffs metálicos tocados em ritmo de forró.  
+Aqui você encontra versões nordestinas de clássicos do metal, onde o peso das
+guitarras encontra o balanço da sanfona.
+</p>
+</div>
+
+
+<div class="cards-container">
+
+<article class="card">
+
+<h2>Enter Sandman</h2>
+
+<p>
+"Exit light, enter night.  
+Take my hand, we're off to never-never land."
+</p>
+
+<audio controls>
+<source src="/musica.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Lançamento: 29 de julho de 1991</footer>
+
+</article>
+
+
+<article class="card">
+
+<h2>Aerials</h2>
+
+<p>
+"Life is a waterfall.  
+We're one in the river and one again after the fall."
+</p>
+
+<audio controls>
+<source src="/musica-2.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Lançamento: 10 de junho de 2002</footer>
+
+</article>
+
+</div>
+
+</body>
+</html>

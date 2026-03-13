@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Factory | Aplicação Exclusiva</title>
+    <!-- Ligando o arquivo CSS customizado -->
+    <link rel="stylesheet" href="fabrica_de_atletas.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Athlete Factory</h1>
+            <p>Formulário de Candidatura Exclusiva para Atletas de Elite.</p>
+        </header>
+
+        <form>
+
+            <fieldset>
+                <legend>1. Informações Pessoais</legend>
+
+                <div class="input-group">
+                    <label for="nome">Nome Completo Oficial:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail Profissional:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone / WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="passaporte">Nacionalidade / Passaporte:</label>
+                    <input type="text" id="passaporte" name="passaporte" required>
+                </div>
+
+                <div class="input-group radio-group">
+                    <label>Gênero Competitivo:</label><br>
+                    <label><input type="radio" name="genero" value="masculino" required> Masculino</label>
+                    <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+                    <label><input type="radio" name="genero" value="misto"> Categoria Mista / Outro</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Perfil Atlético & Biometria</legend>
+
+                <div class="input-group">
+                    <label for="modalidade">Modalidade de Alto Rendimento:</label>
+                    <select id="modalidade" name="modalidade" required>
+                        <option value="">Selecione sua modalidade principal</option>
+                        <option value="futebol">Futebol</option>
+                        <option value="basquete">Basketball</option>
+                        <option value="volei">Vôlei</option>
+                        <option value="atletismo">Atletismo</option>
+                        <option value="natacao">Natação</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="posicao">Posição / Especialidade:</label>
+                    <input type="text" id="posicao" name="posicao" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="altura">Altura Métrica (m):</label>
+                    <input type="number" id="altura" name="altura" step="0.01" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="peso">Massa Corporal em Competição (kg):</label>
+                    <input type="number" id="peso" name="peso" step="0.1" required>
+                </div>
+
+                <div class="input-group radio-group">
+                    <label>Nível Atual de Competição:</label><br>
+                    <label><input type="radio" name="nivel" value="internacional" required> Internacional</label>
+                    <label><input type="radio" name="nivel" value="nacional"> Nacional (1ª Divisão)</label>
+                    <label><input type="radio" name="nivel" value="base"> Categoria de Base</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Histórico e Performance</legend>
+
+                <div class="input-group">
+                    <label for="clube_atual">Clube / Equipe Atual:</label>
+                    <input type="text" id="clube_atual" name="clube_atual">
+                </div>
+
+                <div class="input-group">
+                    <label for="video_url">Vídeo de Performance (URL do YouTube/Vimeo):</label>
+                    <input type="url" id="video_url" name="video_url" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="curriculo">Upload do Currículo Esportivo (PDF/Word):</label>
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="conquistas">Principais Títulos e Marcas:</label>
+                    <textarea id="conquistas" name="conquistas" rows="4" required></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Termos e Aceites</legend>
+
+                <div class="input-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="termos" name="termos" required>
+                        Aceito os Termos do Programa de Alto Rendimento e confirmo a veracidade dos dados.
+                    </label>
+                </div>
+
+                <div class="input-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        Aceito receber comunicados via e-mail ou WhatsApp sobre a seleção.
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit">Submeter Aplicação de Elite</button>
+        </form>
+    </div>
+</body>
+
+</html>
