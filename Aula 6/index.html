@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões</title>
+    <style>
+        .teclado {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 80px);
+            gap: 10px;
+            max-width: 300px;
+            margin: 50px auto;
+        }
+
+        .btn-num {
+            width: 80px;
+            height: 80px;
+            font-size:
+                24px;
+            font-weight: bold;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="teclado">
+        <button class="btn-num" data-num="1">1</button>
+        <button class="btn-num" data-num="2">2</button>
+        <button class="btn-num" data-num="3">3</button>
+        <button class="btn-num" data-num="4">4</button>
+        <button class="btn-num" data-num="5">5</button>
+        <button class="btn-num" data-num="6">6</button>
+        <button class="btn-num" data-num="7">7</button>
+        <button class="btn-num" data-num="8">8</button>
+        <button class="btn-num" data-num="9">9</button>
+        <button class="btn-num" data-num="0" style="grid-column: span 3;">0</button>
+    </div>
+
+</body>
+<script>
+    const botoes =
+        document.querySelectorAll('.btn-num');
+    botoes.forEach(botao => {
+        botao.addEventListener('click', function () {
+            // FORÇA FUNDO VERMELHO
+            this.style.backgroundColor = 'red';
+            this.style.color = 'white';
+        });
+    });
+</script>
+
+</html>
