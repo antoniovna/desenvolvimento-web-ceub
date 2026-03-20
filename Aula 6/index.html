@@ -1,61 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botões</title>
+    <title>Acesso ao Sistema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        .teclado {
-            display: grid;
-            grid-template-columns:
-                repeat(3, 80px);
-            gap: 10px;
-            max-width: 300px;
-            margin: 50px auto;
+        :root {
+            --primary: #0575E6;
+            --primary-dark: #021B79;
+            --text-main: #333333;
+            --text-light: #777777;
+            --bg-card: #ffffff;
+            --input-bg: #f5f7f9;
         }
 
-        .btn-num {
-            width: 80px;
-            height: 80px;
-            font-size:
-                24px;
-            font-weight: bold;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background: #f0f0f0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle-bg {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 450px;
+            height: 450px;
+            top: -150px;
+            left: -100px;
+        }
+
+        .circle-2 {
+            width: 350px;
+            height: 350px;
+            bottom: -100px;
+            right: -50px;
+        }
+
+        .login-card {
+            background-color: var(--bg-card);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .login-card h2 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .login-card p.subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: var(--input-bg);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(5, 117, 230, 0.1);
+        }
+
+        .form-group select {
             cursor: pointer;
-            transition: all 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23777" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position-x: 96%;
+            background-position-y: center;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 5px 15px rgba(5, 117, 230, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 117, 230, 0.6);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
         }
     </style>
-
 </head>
 
 <body>
-    <div class="teclado">
-        <button class="btn-num" data-num="1">1</button>
-        <button class="btn-num" data-num="2">2</button>
-        <button class="btn-num" data-num="3">3</button>
-        <button class="btn-num" data-num="4">4</button>
-        <button class="btn-num" data-num="5">5</button>
-        <button class="btn-num" data-num="6">6</button>
-        <button class="btn-num" data-num="7">7</button>
-        <button class="btn-num" data-num="8">8</button>
-        <button class="btn-num" data-num="9">9</button>
-        <button class="btn-num" data-num="0" style="grid-column: span 3;">0</button>
+
+    <div class="circle-bg circle-1"></div>
+    <div class="circle-bg circle-2"></div>
+
+    <div class="login-card">
+        <h2>Bem-vindo</h2>
+        <p class="subtitle">Acesse sua conta para continuar</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
+            </div>
+
+            <div class="form-group">
+                <label for="cargo">Cargo</label>
+                <select id="cargo" name="cargo">
+                    <option value="" disabled selected>Selecione seu perfil de acesso</option>
+                    <option value="Estudante">Estudante</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Coordenador">Coordenador</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Acessar Sistema</button>
+        </form>
     </div>
 
-</body>
-<script>
-    const botoes =
-        document.querySelectorAll('.btn-num');
-    botoes.forEach(botao => {
-        botao.addEventListener('click', function () {
-            // FORÇA FUNDO VERMELHO
-            this.style.backgroundColor = 'red';
-            this.style.color = 'white';
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const matricula = document.getElementById('matricula').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+            const cargo = document.getElementById('cargo').value;
+
+            if (matricula === '' || senha === '' || cargo === '') {
+                alert('Atenção: Por favor, preencha todas as informações para acessar o sistema.');
+            } else {
+                alert(`Boas-vindas!\nRegistro Acadêmico (Matrícula): ${matricula}\nPerfil de Acesso: ${cargo}`);
+            }
         });
-    });
-</script>
+    </script>
+</body>
 
 </html>
