@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTECH - A Sua Loja de Jogos Digitais</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Cabeçalho / Menu -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-area">
+                <img src="assets/logo.png" alt="Logo GameTECH" class="site-logo">
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#utilidades">Utilidades</a></li>
+                    <li><a href="#acessorios">Acessórios</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal / Hero -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <span class="badge new-release">Lançamento Oficial: 24/09/2025</span>
+                <h1>ARK: SURVIVAL EVOLVED II</h1>
+                <p>Prepare-se para uma experiência de sobrevivência revolucionária com gráficos de última geração e
+                    participação de Vin Diesel. Garanta sua cópia digital e comece a aventura sem espera!</p>
+                <a href="#comprar-ark2" class="btn btn-primary">Garantir Meu Jogo</a>
+            </div>
+            <div class="carousel-container hero-carousel" data-carousel="hero-ark">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="assets/ark/main-pannel.jpg" alt="ARK 2 Banner Principal">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/ark/photo1.jpg" alt="ARK 2 Screenshot 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/ark/photo2.jpg" alt="ARK 2 Screenshot 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/ark/photo3.jpg" alt="ARK 2 Screenshot 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/ark/photo4.jpg" alt="ARK 2 Screenshot 4">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel('hero-ark', -1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveCarousel('hero-ark', 1)">&#10095;</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide('hero-ark', 0)"></span>
+                    <span class="dot" onclick="currentSlide('hero-ark', 1)"></span>
+                    <span class="dot" onclick="currentSlide('hero-ark', 2)"></span>
+                    <span class="dot" onclick="currentSlide('hero-ark', 3)"></span>
+                    <span class="dot" onclick="currentSlide('hero-ark', 4)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Games -->
+    <section id="games" class="section">
+        <div class="container">
+            <h2 class="section-title">Games <span>em Destaque</span></h2>
+            <div class="cards-grid single-card-grid">
+
+                <!-- O Produto Necessidade: ARK 2 -->
+                <div class="card product-necessity">
+                    <div class="carousel-container card-carousel" data-carousel="card-ark">
+                        <div class="carousel-track">
+                            <div class="carousel-slide active">
+                                <img src="assets/ark/main-pannel.jpg" alt="Capa ARK 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/ark/photo1.jpg" alt="Gameplay ARK 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/ark/photo2.jpg" alt="ARK 2 Screenshot 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/ark/photo3.jpg" alt="ARK 2 Screenshot 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/ark/photo4.jpg" alt="ARK 2 Screenshot 4">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('card-ark', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('card-ark', 1)">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="currentSlide('card-ark', 0)"></span>
+                            <span class="dot" onclick="currentSlide('card-ark', 1)"></span>
+                            <span class="dot" onclick="currentSlide('card-ark', 2)"></span>
+                            <span class="dot" onclick="currentSlide('card-ark', 3)"></span>
+                            <span class="dot" onclick="currentSlide('card-ark', 4)"></span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag tag-hot">Lançamento</span>
+                        <h3>Ark Survivor Evolved 2</h3>
+                        <p>Sobrevivência e ação extrema em um novo mundo com gráficos de última geração.</p>
+                        <div class="price">R$ 299,90</div>
+                        <button class="btn btn-block">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Utilidades -->
+    <section id="utilidades" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Utilidades <span>Gamer</span></h2>
+            <div class="cards-grid single-card-grid">
+
+                <!-- O Produto Necessidade: Cadeira Snake Lancaster -->
+                <div class="card highlight-promo">
+                    <div class="card-badge-discount">-30% OFF</div>
+                    <div class="carousel-container card-carousel" data-carousel="card-cadeira">
+                        <div class="carousel-track">
+                            <div class="carousel-slide active">
+                                <img src="assets/cadeira/cadeira_gamer_snake_lancaster_branca_cgf001_b_1571685873_72cf_600x600.jpg"
+                                    alt="Cadeira Snake Lancaster">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/cadeira/51TgOsEHdoL._AC_SX466_.jpg"
+                                    alt="Cadeira Snake Lancaster Angulo">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/cadeira/cadeira_gamer_super_hero_azul_1567210967_3003_300x300.jpg"
+                                    alt="Cadeira Variante">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('card-cadeira', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('card-cadeira', 1)">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="currentSlide('card-cadeira', 0)"></span>
+                            <span class="dot" onclick="currentSlide('card-cadeira', 1)"></span>
+                            <span class="dot" onclick="currentSlide('card-cadeira', 2)"></span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag tag-promo">Oferta Imperdível</span>
+                        <h3>Cadeira Gamer Snake Lancaster CGF0001-B</h3>
+                        <p>Conforto máximo para longas sessões de jogo. Encosto reclinável até 135 graus, ideal
+                            ergonomia.</p>
+                        <div class="price old-price">R$ 1.299,90</div>
+                        <div class="price promo-price">R$ 899,90</div>
+                        <button class="btn btn-block btn-accent">Aproveitar Oferta</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Acessórios -->
+    <section id="acessorios" class="section">
+        <div class="container">
+            <h2 class="section-title">Acessórios <span>Essenciais</span></h2>
+            <div class="cards-grid single-card-grid">
+
+                <!-- O Produto Necessidade: Suporte BG500 -->
+                <div class="card highlight-promo stock-clearance">
+                    <div class="card-badge-discount">Queima de Estoque</div>
+                    <div class="carousel-container card-carousel" data-carousel="card-suporte">
+                        <div class="carousel-track">
+                            <div class="carousel-slide active">
+                                <img src="assets/suporte/suporte-gamer-para-notebook-kbm-gaming-bg500-ate-21-6-fans-rgb-preto-e-vermelho-kgbg500pt_1724413891_gg.png"
+                                    alt="Suporte BG500 Principal">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/suporte/suporte-gamer-para-notebook-kbm-gaming-bg500-ate-21-6-fans-rgb-preto-e-vermelho-kgbg500pt_1724413896_gg.webp"
+                                    alt="Suporte BG500 Lateral">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/suporte/suporte-gamer-para-notebook-kbm-gaming-bg500-ate-21-6-fans-rgb-preto-e-vermelho-kgbg500pt_1724413897_gg.webp"
+                                    alt="Suporte BG500 RGB">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/suporte/ce2638123b8b3155fe4ae69e7a39179a.webp"
+                                    alt="Suporte BG500 Visual">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('card-suporte', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('card-suporte', 1)">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="currentSlide('card-suporte', 0)"></span>
+                            <span class="dot" onclick="currentSlide('card-suporte', 1)"></span>
+                            <span class="dot" onclick="currentSlide('card-suporte', 2)"></span>
+                            <span class="dot" onclick="currentSlide('card-suporte', 3)"></span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag tag-promo">Mais Levados</span>
+                        <h3>Suporte Notebook Gaming FORTT BG500</h3>
+                        <p>O melhor em conforto e performance. 6 ventiladores potentes (até 2400 RPM), LEDs RGB
+                            vibrantes. Compatível até 21 polegadas!</p>
+                        <div class="price old-price">R$ 249,90</div>
+                        <div class="price promo-price">R$ 149,90</div>
+                        <button class="btn btn-block btn-accent">Comprar Agora</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Logo GameTECH" class="site-logo-small">
+                    <p>Referência em lançamentos exclusivos e produtos de alta qualidade para entusiastas de jogos
+                        digitais.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#utilidades">Utilidades</a></li>
+                        <li><a href="#acessorios">Acessórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <p>Redes sociais em breve</p>
+                </div>
+            </div>
+            <div class="footer-credits">
+                <p>&copy; 2026 GameTECH. Diretitos Reservados.</p>
+                <p>Design e Desenvolvimento por <strong>Desenvolvedor Aluno</strong> e <strong>AI Assistente</strong>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica de manipulação de múltiplos carousels simultâneos
+        const carouselStates = {};
+
+        // Inicializa o estado para cada carousel encontrado na tela
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const id = container.getAttribute('data-carousel');
+            if (id) {
+                carouselStates[id] = 0;
+            }
+        });
+
+        function showSlides(id, n) {
+            const container = document.querySelector(`.carousel-container[data-carousel="${id}"]`);
+            if (!container) return;
+
+            const slides = container.querySelectorAll('.carousel-slide');
+            const dots = container.querySelectorAll('.dot');
+
+            if (n >= slides.length) { carouselStates[id] = 0; }
+            if (n < 0) { carouselStates[id] = slides.length - 1; }
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            if (slides.length > 0) {
+                slides[carouselStates[id]].classList.add('active');
+                if (dots.length > 0) {
+                    dots[carouselStates[id]].classList.add('active');
+                }
+            }
+        }
+
+        function moveCarousel(id, n) {
+            carouselStates[id] += n;
+            showSlides(id, carouselStates[id]);
+        }
+
+        function currentSlide(id, n) {
+            carouselStates[id] = n;
+            showSlides(id, carouselStates[id]);
+        }
+
+        // Auto rotação a cada 5 segundos apenas para o hero-carousel
+        setInterval(() => {
+            const heroContainer = document.querySelector('.hero-carousel');
+            if (heroContainer && heroContainer.matches(':hover') === false) {
+                moveCarousel('hero-ark', 1);
+            }
+        }, 5000);
+    </script>
+</body>
+
+</html>
