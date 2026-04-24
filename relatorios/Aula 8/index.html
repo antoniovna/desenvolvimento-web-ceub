@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Periódica - Posso Lamber?</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Classe customizada para Roxo (nós nos vemos na outra vida) */
+        .btn-purple {
+            background-color: #6f42c1;
+            color: #fff;
+            border-color: #6f42c1;
+        }
+
+        .btn-purple:hover {
+            background-color: #59339d;
+            color: #fff;
+        }
+
+        /* Estilos do grid e célula para Tabela Periódica */
+        .element-cell {
+            padding: 5px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .element-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .atomic-num {
+            font-size: 0.55rem;
+            position: absolute;
+            top: 2px;
+            left: 4px;
+            font-weight: bold;
+        }
+
+        .atomic-mass {
+            font-size: 0.50rem;
+            margin-top: 1px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .symbol {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .name {
+            font-size: 0.55rem;
+            margin-top: -3px;
+        }
+
+        .empty-cell {
+            visibility: hidden;
+            min-height: 80px;
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+            border-radius: 4px;
+        }
+
+        /* Hack do Grid do Bootstrap para suportar 18 colunas sem quebras */
+        .row-cols-18>* {
+            flex: 0 0 auto;
+            width: 5.555%;
+            /* 100% / 18 colunas = 5.555% */
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .bg-purple {
+            background-color: #59339d;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .row-cols-18 {
+                min-width: 1100px;
+                /* Impede a compressão excessiva adicionando um scroll horizonatal no container pai */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4">Tabela Periódica dos Elementos</h1>
+        <h3 class="mb-5 text-secondary">Posso Lamber?</h3>
+
+        <div class="d-flex justify-content-center mb-5 gap-4 flex-wrap">
+            <div class="d-flex align-items-center"><span class="legend-box bg-success"></span> Verde (Pode lamber)</div>
+            <div class="d-flex align-items-center"><span class="legend-box bg-info"></span> Azul (Talvez não seja uma
+                boa ideia)</div>
+            <div class="d-flex align-items-center"><span class="legend-box bg-warning"></span> Laranjado (Por favor, não
+                faça isso)</div>
+            <div class="d-flex align-items-center"><span class="legend-box bg-purple"></span> Roxo (Nós nos vemos na
+                outra vida)</div>
+        </div>
+    </div>
+
+    <!-- Container wrapper para scroll se a tela for pequena -->
+    <div class="container-fluid overflow-auto pb-4">
+        <div id="periodic-table" class="mx-auto" style="max-width: 1300px;"></div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Metodologia: array de objetos mapeado na tabela
+        // Categorias (cat): 1 (Verde), 2 (Azul), 3 (Laranjado), 4 (Roxo)
+        const elementos = [
+            // Período 1
+            { n: 1, m: 1.008, sym: 'H', name: 'Hidrogênio', per: 1, col: 1, cat: 2 },
+            { n: 2, m: 4.0026, sym: 'He', name: 'Hélio', per: 1, col: 18, cat: 2 },
+
+            // Período 2
+            { n: 3, m: 6.94, sym: 'Li', name: 'Lítio', per: 2, col: 1, cat: 4 },
+            { n: 4, m: 9.0122, sym: 'Be', name: 'Berílio', per: 2, col: 2, cat: 3 },
+            { n: 5, m: 10.81, sym: 'B', name: 'Boro', per: 2, col: 13, cat: 1 },
+            { n: 6, m: 12.011, sym: 'C', name: 'Carbono', per: 2, col: 14, cat: 1 },
+            { n: 7, m: 14.007, sym: 'N', name: 'Nitrogênio', per: 2, col: 15, cat: 2 },
+            { n: 8, m: 15.999, sym: 'O', name: 'Oxigênio', per: 2, col: 16, cat: 2 },
+            { n: 9, m: 18.998, sym: 'F', name: 'Flúor', per: 2, col: 17, cat: 4 },
+            { n: 10, m: 20.180, sym: 'Ne', name: 'Neônio', per: 2, col: 18, cat: 2 },
+
+            // Período 3
+            { n: 11, m: 22.990, sym: 'Na', name: 'Sódio', per: 3, col: 1, cat: 4 },
+            { n: 12, m: 24.305, sym: 'Mg', name: 'Magnésio', per: 3, col: 2, cat: 3 },
+            { n: 13, m: 26.982, sym: 'Al', name: 'Alumínio', per: 3, col: 13, cat: 1 },
+            { n: 14, m: 28.085, sym: 'Si', name: 'Silício', per: 3, col: 14, cat: 1 },
+            { n: 15, m: 30.974, sym: 'P', name: 'Fósforo', per: 3, col: 15, cat: 3 },
+            { n: 16, m: 32.06, sym: 'S', name: 'Enxofre', per: 3, col: 16, cat: 3 },
+            { n: 17, m: 35.45, sym: 'Cl', name: 'Cloro', per: 3, col: 17, cat: 4 },
+            { n: 18, m: 39.95, sym: 'Ar', name: 'Argônio', per: 3, col: 18, cat: 2 },
+
+            // Período 4
+            { n: 19, m: 39.098, sym: 'K', name: 'Potássio', per: 4, col: 1, cat: 4 },
+            { n: 20, m: 40.078, sym: 'Ca', name: 'Cálcio', per: 4, col: 2, cat: 1 },
+            { n: 21, m: 44.956, sym: 'Sc', name: 'Escândio', per: 4, col: 3, cat: 2 },
+            { n: 22, m: 47.867, sym: 'Ti', name: 'Titânio', per: 4, col: 4, cat: 1 },
+            { n: 23, m: 50.942, sym: 'V', name: 'Vanádio', per: 4, col: 5, cat: 3 },
+            { n: 24, m: 51.996, sym: 'Cr', name: 'Cromo', per: 4, col: 6, cat: 3 },
+            { n: 25, m: 54.938, sym: 'Mn', name: 'Manganês', per: 4, col: 7, cat: 3 },
+            { n: 26, m: 55.845, sym: 'Fe', name: 'Ferro', per: 4, col: 8, cat: 1 },
+            { n: 27, m: 58.933, sym: 'Co', name: 'Cobalto', per: 4, col: 9, cat: 3 },
+            { n: 28, m: 58.693, sym: 'Ni', name: 'Níquel', per: 4, col: 10, cat: 2 },
+            { n: 29, m: 63.546, sym: 'Cu', name: 'Cobre', per: 4, col: 11, cat: 1 },
+            { n: 30, m: 65.38, sym: 'Zn', name: 'Zinco', per: 4, col: 12, cat: 1 },
+            { n: 31, m: 69.723, sym: 'Ga', name: 'Gálio', per: 4, col: 13, cat: 2 },
+            { n: 32, m: 72.630, sym: 'Ge', name: 'Germânio', per: 4, col: 14, cat: 2 },
+            { n: 33, m: 74.922, sym: 'As', name: 'Arsênio', per: 4, col: 15, cat: 4 },
+            { n: 34, m: 78.971, sym: 'Se', name: 'Selênio', per: 4, col: 16, cat: 3 },
+            { n: 35, m: 79.904, sym: 'Br', name: 'Bromo', per: 4, col: 17, cat: 4 },
+            { n: 36, m: 83.798, sym: 'Kr', name: 'Criptônio', per: 4, col: 18, cat: 2 },
+
+            // Período 5
+            { n: 37, m: 85.468, sym: 'Rb', name: 'Rubídio', per: 5, col: 1, cat: 4 },
+            { n: 38, m: 87.62, sym: 'Sr', name: 'Estrôncio', per: 5, col: 2, cat: 3 },
+            { n: 39, m: 88.906, sym: 'Y', name: 'Ítrio', per: 5, col: 3, cat: 2 },
+            { n: 40, m: 91.224, sym: 'Zr', name: 'Zircônio', per: 5, col: 4, cat: 1 },
+            { n: 41, m: 92.906, sym: 'Nb', name: 'Nióbio', per: 5, col: 5, cat: 1 },
+            { n: 42, m: 95.95, sym: 'Mo', name: 'Molibdênio', per: 5, col: 6, cat: 2 },
+            { n: 43, m: 98, sym: 'Tc', name: 'Tecnécio', per: 5, col: 7, cat: 4 },
+            { n: 44, m: 101.07, sym: 'Ru', name: 'Rutênio', per: 5, col: 8, cat: 2 },
+            { n: 45, m: 102.91, sym: 'Rh', name: 'Ródio', per: 5, col: 9, cat: 1 },
+            { n: 46, m: 106.42, sym: 'Pd', name: 'Paládio', per: 5, col: 10, cat: 1 },
+            { n: 47, m: 107.87, sym: 'Ag', name: 'Prata', per: 5, col: 11, cat: 1 },
+            { n: 48, m: 112.41, sym: 'Cd', name: 'Cádmio', per: 5, col: 12, cat: 4 },
+            { n: 49, m: 114.82, sym: 'In', name: 'Índio', per: 5, col: 13, cat: 2 },
+            { n: 50, m: 118.71, sym: 'Sn', name: 'Estanho', per: 5, col: 14, cat: 1 },
+            { n: 51, m: 121.76, sym: 'Sb', name: 'Antimônio', per: 5, col: 15, cat: 3 },
+            { n: 52, m: 127.60, sym: 'Te', name: 'Telúrio', per: 5, col: 16, cat: 3 },
+            { n: 53, m: 126.90, sym: 'I', name: 'Iodo', per: 5, col: 17, cat: 3 },
+            { n: 54, m: 131.29, sym: 'Xe', name: 'Xenônio', per: 5, col: 18, cat: 2 },
+
+            // Período 6
+            { n: 55, m: 132.91, sym: 'Cs', name: 'Césio', per: 6, col: 1, cat: 4 },
+            { n: 56, m: 137.33, sym: 'Ba', name: 'Bário', per: 6, col: 2, cat: 4 },
+            { n: 71, m: 174.97, sym: 'Lu', name: 'Lutécio', per: 6, col: 3, cat: 2 },
+            { n: 72, m: 178.49, sym: 'Hf', name: 'Háfnio', per: 6, col: 4, cat: 2 },
+            { n: 73, m: 180.95, sym: 'Ta', name: 'Tântalo', per: 6, col: 5, cat: 1 },
+            { n: 74, m: 183.84, sym: 'W', name: 'Tungstênio', per: 6, col: 6, cat: 1 },
+            { n: 75, m: 186.21, sym: 'Re', name: 'Rênio', per: 6, col: 7, cat: 2 },
+            { n: 76, m: 190.23, sym: 'Os', name: 'Ósmio', per: 6, col: 8, cat: 4 },
+            { n: 77, m: 192.22, sym: 'Ir', name: 'Irídio', per: 6, col: 9, cat: 1 },
+            { n: 78, m: 195.08, sym: 'Pt', name: 'Platina', per: 6, col: 10, cat: 1 },
+            { n: 79, m: 196.97, sym: 'Au', name: 'Ouro', per: 6, col: 11, cat: 1 },
+            { n: 80, m: 200.59, sym: 'Hg', name: 'Mercúrio', per: 6, col: 12, cat: 4 },
+            { n: 81, m: 204.38, sym: 'Tl', name: 'Tálio', per: 6, col: 13, cat: 4 },
+            { n: 82, m: 207.2, sym: 'Pb', name: 'Chumbo', per: 6, col: 14, cat: 4 },
+            { n: 83, m: 208.98, sym: 'Bi', name: 'Bismuto', per: 6, col: 15, cat: 1 },
+            { n: 84, m: 209, sym: 'Po', name: 'Polônio', per: 6, col: 16, cat: 4 },
+            { n: 85, m: 210, sym: 'At', name: 'Astato', per: 6, col: 17, cat: 4 },
+            { n: 86, m: 222, sym: 'Rn', name: 'Radônio', per: 6, col: 18, cat: 4 },
+
+            // Período 7
+            { n: 87, m: 223, sym: 'Fr', name: 'Frâncio', per: 7, col: 1, cat: 4 },
+            { n: 88, m: 226, sym: 'Ra', name: 'Rádio', per: 7, col: 2, cat: 4 },
+            { n: 103, m: 262, sym: 'Lr', name: 'Laurêncio', per: 7, col: 3, cat: 4 },
+            { n: 104, m: 267, sym: 'Rf', name: 'Rutherfórdio', per: 7, col: 4, cat: 4 },
+            { n: 105, m: 268, sym: 'Db', name: 'Dúbnio', per: 7, col: 5, cat: 4 },
+            { n: 106, m: 269, sym: 'Sg', name: 'Seabórgio', per: 7, col: 6, cat: 4 },
+            { n: 107, m: 270, sym: 'Bh', name: 'Bóhrio', per: 7, col: 7, cat: 4 },
+            { n: 108, m: 269, sym: 'Hs', name: 'Hássio', per: 7, col: 8, cat: 4 },
+            { n: 109, m: 278, sym: 'Mt', name: 'Meitnério', per: 7, col: 9, cat: 4 },
+            { n: 110, m: 281, sym: 'Ds', name: 'Darmstádio', per: 7, col: 10, cat: 4 },
+            { n: 111, m: 282, sym: 'Rg', name: 'Roentgênio', per: 7, col: 11, cat: 4 },
+            { n: 112, m: 285, sym: 'Cn', name: 'Copernício', per: 7, col: 12, cat: 4 },
+            { n: 113, m: 286, sym: 'Nh', name: 'Nihônio', per: 7, col: 13, cat: 4 },
+            { n: 114, m: 289, sym: 'Fl', name: 'Fleróvio', per: 7, col: 14, cat: 4 },
+            { n: 115, m: 290, sym: 'Mc', name: 'Moscóvio', per: 7, col: 15, cat: 4 },
+            { n: 116, m: 293, sym: 'Lv', name: 'Livermório', per: 7, col: 16, cat: 4 },
+            { n: 117, m: 294, sym: 'Ts', name: 'Tenessino', per: 7, col: 17, cat: 4 },
+            { n: 118, m: 294, sym: 'Og', name: 'Oganessônio', per: 7, col: 18, cat: 4 },
+
+            // Lantanídeos - mostrados no per 8
+            { n: 57, m: 138.91, sym: 'La', name: 'Lantânio', per: 8, col: 4, cat: 2 },
+            { n: 58, m: 140.12, sym: 'Ce', name: 'Cério', per: 8, col: 5, cat: 2 },
+            { n: 59, m: 140.91, sym: 'Pr', name: 'Praseodímio', per: 8, col: 6, cat: 2 },
+            { n: 60, m: 144.24, sym: 'Nd', name: 'Neodímio', per: 8, col: 7, cat: 2 },
+            { n: 61, m: 145, sym: 'Pm', name: 'Promécio', per: 8, col: 8, cat: 4 },
+            { n: 62, m: 150.36, sym: 'Sm', name: 'Samário', per: 8, col: 9, cat: 2 },
+            { n: 63, m: 151.96, sym: 'Eu', name: 'Európio', per: 8, col: 10, cat: 2 },
+            { n: 64, m: 157.25, sym: 'Gd', name: 'Gadolínio', per: 8, col: 11, cat: 2 },
+            { n: 65, m: 158.93, sym: 'Tb', name: 'Térbio', per: 8, col: 12, cat: 2 },
+            { n: 66, m: 162.50, sym: 'Dy', name: 'Disprósio', per: 8, col: 13, cat: 2 },
+            { n: 67, m: 164.93, sym: 'Ho', name: 'Hólmio', per: 8, col: 14, cat: 2 },
+            { n: 68, m: 167.26, sym: 'Er', name: 'Érbio', per: 8, col: 15, cat: 2 },
+            { n: 69, m: 168.93, sym: 'Tm', name: 'Túlio', per: 8, col: 16, cat: 2 },
+            { n: 70, m: 173.05, sym: 'Yb', name: 'Itérbio', per: 8, col: 17, cat: 2 },
+
+            // Actinídeos - mostrados no per 9
+            { n: 89, m: 227, sym: 'Ac', name: 'Actínio', per: 9, col: 4, cat: 4 },
+            { n: 90, m: 232.04, sym: 'Th', name: 'Tório', per: 9, col: 5, cat: 4 },
+            { n: 91, m: 231.04, sym: 'Pa', name: 'Protactínio', per: 9, col: 6, cat: 4 },
+            { n: 92, m: 238.03, sym: 'U', name: 'Urânio', per: 9, col: 7, cat: 4 },
+            { n: 93, m: 237, sym: 'Np', name: 'Netúnio', per: 9, col: 8, cat: 4 },
+            { n: 94, m: 244, sym: 'Pu', name: 'Plutônio', per: 9, col: 9, cat: 4 },
+            { n: 95, m: 243, sym: 'Am', name: 'Amerício', per: 9, col: 10, cat: 4 },
+            { n: 96, m: 247, sym: 'Cm', name: 'Cúrio', per: 9, col: 11, cat: 4 },
+            { n: 97, m: 247, sym: 'Bk', name: 'Berquélio', per: 9, col: 12, cat: 4 },
+            { n: 98, m: 251, sym: 'Cf', name: 'Califórnio', per: 9, col: 13, cat: 4 },
+            { n: 99, m: 252, sym: 'Es', name: 'Einstênio', per: 9, col: 14, cat: 4 },
+            { n: 100, m: 257, sym: 'Fm', name: 'Férmio', per: 9, col: 15, cat: 4 },
+            { n: 101, m: 258, sym: 'Md', name: 'Mendelévio', per: 9, col: 16, cat: 4 },
+            { n: 102, m: 259, sym: 'No', name: 'Nobélio', per: 9, col: 17, cat: 4 }
+        ];
+
+        // Função auxiliar para retornar a classe bootstrap baseada na categoria
+        function getClassPorCategoria(cat) {
+            switch (cat) {
+                case 1: return 'btn btn-success'; // Verde
+                case 2: return 'btn btn-info';    // Azul
+                case 3: return 'btn btn-warning'; // Laranjado
+                case 4: return 'btn btn-purple';  // Roxo
+                default: return 'btn btn-light';
+            }
+        }
+
+        const tabelaContainer = document.getElementById('periodic-table');
+
+        // Construir 9 linhas (7 principais + 2 séries)
+        for (let r = 1; r <= 9; r++) {
+
+            // Espaçamento antes dos Lantanídeos/Actinídeos
+            if (r === 8) {
+                const spacer = document.createElement('div');
+                spacer.className = 'mt-3 mb-3';
+                spacer.style.height = '20px';
+                tabelaContainer.appendChild(spacer);
+            }
+
+            const row = document.createElement('div');
+            // 'row row-cols-18' para que cada coluna tenha o mesmo espaço de 1/18
+            row.className = 'row row-cols-18 mb-1 justify-content-center flex-nowrap';
+
+            for (let c = 1; c <= 18; c++) {
+                const col = document.createElement('div');
+                col.className = 'col p-0'; // p-0 para evitar paddings excessivos entre o gap
+
+                // Procurar por um elemento com o per e col atuais
+                let elemento = elementos.find(el => el.per === r && el.col === c);
+
+                if (elemento) {
+                    const cell = document.createElement('div');
+                    // Usar .btn e as classes de cor com base na categoria
+                    cell.className = `btn w-100 element-cell ${getClassPorCategoria(elemento.cat)}`;
+
+                    const numDiv = document.createElement('div');
+                    numDiv.className = 'atomic-num';
+                    numDiv.innerText = elemento.n;
+
+                    const symSpan = document.createElement('span');
+                    symSpan.className = 'symbol';
+                    symSpan.innerText = elemento.sym;
+
+                    const nameDiv = document.createElement('div');
+                    nameDiv.className = 'name text-truncate';
+                    nameDiv.innerText = elemento.name;
+
+                    const massDiv = document.createElement('div');
+                    massDiv.className = 'atomic-mass text-truncate';
+                    massDiv.innerText = elemento.m;
+
+                    cell.appendChild(numDiv);
+                    cell.appendChild(symSpan);
+                    cell.appendChild(nameDiv);
+                    cell.appendChild(massDiv);
+
+                    // Tooltip base para mostrar o nome completo (nativamente html)
+                    cell.title = `${elemento.name} (${elemento.sym}) - Nº: ${elemento.n} - Massa: ${elemento.m}`;
+
+                    // Margin bem pequena para separar celulas suavemente
+                    cell.style.margin = "2px";
+
+                    col.appendChild(cell);
+                } else if ((r === 8 || r === 9 || r <= 7) && (!elemento)) {
+                    // Célula vazia no local
+                    const empty = document.createElement('div');
+                    empty.className = 'element-cell empty-cell bg-transparent border-0';
+                    empty.style.margin = "2px";
+                    col.appendChild(empty);
+                }
+
+                row.appendChild(col);
+            }
+
+            tabelaContainer.appendChild(row);
+        }
+    </script>
+</body>
+
+</html>
