@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANINI - Copa do Mundo 2026</title>
+    <meta name="description"
+        content="Tabela oficial da Copa do Mundo 2026 PANINI. Acompanhe grupos, confrontos, resultados e classificação das seleções.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#scrollspy-nav" data-bs-offset="120" tabindex="0">
+
+    <!-- ============ HERO SECTION ============ -->
+    <header class="hero-section" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="container position-relative z-3 text-center">
+            <div class="panini-logo-wrapper mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panini_logo.svg/1200px-Panini_logo.svg.png"
+                    alt="PANINI Logo" class="panini-logo img-fluid" id="panini-logo">
+            </div>
+            <h1 class="hero-title">COPA DO MUNDO <span class="year-highlight">2026</span></h1>
+            <p class="hero-subtitle">ESTADOS UNIDOS • MÉXICO • CANADÁ</p>
+            <div class="hero-flags mt-4">
+                <img src="https://flagcdn.com/w80/us.png" alt="EUA" class="img-fluid hero-flag">
+                <img src="https://flagcdn.com/w80/mx.png" alt="México" class="img-fluid hero-flag">
+                <img src="https://flagcdn.com/w80/ca.png" alt="Canadá" class="img-fluid hero-flag">
+            </div>
+            <a href="#grupos-af" class="btn btn-panini mt-4" id="btn-explore">
+                <i class="bi bi-trophy-fill me-2"></i>Explorar Tabela
+            </a>
+        </div>
+    </header>
+
+    <!-- ============ SCROLLSPY NAVBAR ============ -->
+    <nav id="scrollspy-nav" class="navbar navbar-expand-lg sticky-top scrollspy-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#hero">
+                <i class="bi bi-trophy-fill me-2 text-warning"></i>
+                <span class="brand-text">PANINI 2026</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScrollspy"
+                aria-controls="navbarScrollspy" aria-expanded="false" aria-label="Menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScrollspy">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#grupos-af">
+                            <i class="bi bi-grid-3x3-gap-fill me-1"></i>Grupos A-F
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#grupos-gl">
+                            <i class="bi bi-grid-3x3-gap-fill me-1"></i>Grupos G-L
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chaveamento">
+                            <i class="bi bi-diagram-3-fill me-1"></i>Chaveamento
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#selecoes">
+                            <i class="bi bi-flag-fill me-1"></i>Seleções
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main>
+
+        <!-- ===== GRUPOS A-F ===== -->
+        <section id="grupos-af" class="section-block">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Fase de Grupos</span>
+                    <h2 class="section-title">Grupos A — F</h2>
+                    <p class="section-desc">Primeira metade dos 12 grupos da Copa do Mundo 2026</p>
+                </div>
+                <div class="row g-4" id="groups-af-container"></div>
+            </div>
+        </section>
+
+        <!-- ===== GRUPOS G-L ===== -->
+        <section id="grupos-gl" class="section-block section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Fase de Grupos</span>
+                    <h2 class="section-title">Grupos G — L</h2>
+                    <p class="section-desc">Segunda metade dos 12 grupos da Copa do Mundo 2026</p>
+                </div>
+                <div class="row g-4" id="groups-gl-container"></div>
+            </div>
+        </section>
+
+        <!-- ===== CHAVEAMENTO ===== -->
+        <section id="chaveamento" class="section-block">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Mata-Mata</span>
+                    <h2 class="section-title">Chaveamento</h2>
+                    <p class="section-desc">Fase eliminatória — das oitavas de final até a grande final</p>
+                </div>
+
+                <!-- Oitavas de Final -->
+                <div class="bracket-phase mb-5">
+                    <h3 class="phase-title"><i class="bi bi-1-circle-fill me-2"></i>Oitavas de Final</h3>
+                    <div class="row g-3" id="round-16-container"></div>
+                </div>
+
+                <!-- Quartas de Final -->
+                <div class="bracket-phase mb-5">
+                    <h3 class="phase-title"><i class="bi bi-2-circle-fill me-2"></i>Quartas de Final</h3>
+                    <div class="row g-3" id="quarter-container"></div>
+                </div>
+
+                <!-- Semifinais -->
+                <div class="bracket-phase mb-5">
+                    <h3 class="phase-title"><i class="bi bi-3-circle-fill me-2"></i>Semifinais</h3>
+                    <div class="row g-3" id="semi-container"></div>
+                </div>
+
+                <!-- Disputa de 3º e Final -->
+                <div class="bracket-phase">
+                    <h3 class="phase-title"><i class="bi bi-trophy-fill me-2 text-warning"></i>Disputa de 3º Lugar &
+                        Final</h3>
+                    <div class="row g-3" id="final-container"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== SELEÇÕES (Scrollspy target) ===== -->
+        <section id="selecoes" class="section-block section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Detalhes em Foco</span>
+                    <h2 class="section-title">Todas as Seleções</h2>
+                    <p class="section-desc">Navegue pelos detalhes das 48 seleções participantes da Copa do Mundo 2026</p>
+                </div>
+
+                <div class="row layout-selecoes">
+                    <!-- Sidebar Lateral -->
+                    <div class="col-lg-3 col-md-4 d-none d-md-block">
+                        <nav id="sidebar-selecoes" class="sidebar-selecoes sticky-top">
+                            <!-- Injetado via JS -->
+                        </nav>
+                    </div>
+
+                    <!-- Conteúdo Principal de Detalhes -->
+                    <div class="col-lg-9 col-md-8">
+                        <div id="detalhes-container" class="detalhes-selecoes">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer" id="footer">
+        <div class="container text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panini_logo.svg/1200px-Panini_logo.svg.png"
+                alt="PANINI" class="footer-logo img-fluid mb-3">
+            <p class="mb-1">© 2026 PANINI — Todos os direitos reservados</p>
+            <p class="text-muted small">Site desenvolvido para fins acadêmicos — Desenvolvimento Web CEUB</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
