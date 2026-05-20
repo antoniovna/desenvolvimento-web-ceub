@@ -807,6 +807,115 @@ body {
 }
 
 /* ========================================
+   STADIUM CARDS
+   ======================================== */
+.stadium-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.stadium-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.stadium-card-header {
+    background: linear-gradient(135deg, rgba(245, 197, 24, 0.15) 0%, rgba(0, 48, 135, 0.15) 100%);
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.stadium-info-title {
+    flex-grow: 1;
+}
+
+.stadium-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+}
+
+.stadium-city {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stadium-country-flag {
+    width: 48px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(245, 197, 24, 0.3);
+    flex-shrink: 0;
+}
+
+.stadium-card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.stadium-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.stadium-detail-icon {
+    font-size: 1.5rem;
+    color: var(--panini-gold);
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stadium-detail-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stadium-detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.stadium-detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stadium-capacity {
+    font-weight: 700;
+    color: var(--panini-gold);
+}
+
+.stadium-timezone {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 @media (max-width: 992px) {

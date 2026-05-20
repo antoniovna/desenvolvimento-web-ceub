@@ -1,5 +1,6 @@
 let FULL_TEAMS = [];
 let MATCHES = [];
+let FULL_STADIUMS = [];
 const letters = "ABCDEFGHIJKL".split("");
 
 async function loadData() {
@@ -10,11 +11,16 @@ async function loadData() {
         const matchesRes = await fetch('./json/worldcup.json');
         const matchesData = await matchesRes.json();
         
+        const stadiumsRes = await fetch('./json/worldcup.stadiums.json');
+        const stadiumsData = await stadiumsRes.json();
+        
         processTeams(teamsData);
         processMatches(matchesData.matches);
+        processStadiums(stadiumsData.stadiums);
         
         renderGroups();
         renderBracket();
+        renderStadiums();
         renderTeams();
         
         // Timeout para garantir que o DOM renderizou completamente antes de inicializar o scrollspy
@@ -63,6 +69,20 @@ function processTeams(teamsData) {
 
 function processMatches(matchesData) {
     MATCHES = matchesData;
+}
+
+function processStadiums(stadiumsData) {
+    FULL_STADIUMS = stadiumsData.map(stadium => {
+        return {
+            name: stadium.name,
+            city: stadium.city,
+            country_code: stadium.cc,
+            timezone: stadium.timezone,
+            capacity: stadium.capacity,
+            coords: stadium.coords,
+            flag_url: `https://flagcdn.com/w120/${stadium.cc}.png`
+        };
+    });
 }
 
 function getTeamInfo(teamName) {
@@ -123,6 +143,49 @@ function renderGroups() {
             if (groupsGL) groupsGL.innerHTML += html;
         }
     });
+}
+
+// ========================================
+// RENDER STADIUMS
+// ========================================
+function renderStadiums() {
+    const stadiumsContainer = document.getElementById("stadiums-container");
+    
+    if (!stadiumsContainer) return;
+    
+    stadiumsContainer.innerHTML = FULL_STADIUMS.map(stadium => `
+        <div class="col-md-6 col-lg-4">
+            <div class="stadium-card fade-in-up">
+                <div class="stadium-card-header">
+                    <div class="stadium-info-title">
+                        <div class="stadium-name">${stadium.name}</div>
+                        <div class="stadium-city">${stadium.city}</div>
+                    </div>
+                    <img src="${stadium.flag_url}" alt="Bandeira ${stadium.city}" class="stadium-country-flag">
+                </div>
+                <div class="stadium-card-body">
+                    <div class="stadium-detail">
+                        <div class="stadium-detail-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="stadium-detail-content">
+                            <div class="stadium-detail-label">Capacidade</div>
+                            <div class="stadium-detail-value stadium-capacity">${stadium.capacity.toLocaleString('pt-BR')} lugares</div>
+                        </div>
+                    </div>
+                    <div class="stadium-detail">
+                        <div class="stadium-detail-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <div class="stadium-detail-content">
+                            <div class="stadium-detail-label">Fuso Horário</div>
+                            <div class="stadium-detail-value stadium-timezone">${stadium.timezone}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
 // ========================================
@@ -363,7 +426,7 @@ function initAnimations() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.group-card, .match-card').forEach(el => {
+    document.querySelectorAll('.group-card, .match-card, .stadium-card').forEach(el => {
         el.classList.add('fade-in-up');
         animObserver.observe(el);
     });
