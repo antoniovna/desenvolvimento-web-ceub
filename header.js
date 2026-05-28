@@ -13,6 +13,8 @@ const headerHTML = `
                     <a href="./relatorios/Aula%207/index.html">Landing Page GameTECH</a>
                     <a href="./relatorios/Aula%208/index.html">Tabela Periódica</a>
                     <a href="./relatorios/Aula%209/index.html">Fotógrafo</a>
+                    <a href="./relatorios/Aula%2010/index.html">Panini</a>
+                    <a href="./relatorios/Aula%2011/index.html">Dindins</a>
                 </div>
             </li>
             <li><a href="relatorios.html" id="nav-relatorios">Relatórios</a></li>

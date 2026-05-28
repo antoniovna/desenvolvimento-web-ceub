@@ -6,543 +6,534 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dindins Dona Socorro &mdash; Apaixonados por Dindins desde 1994</title>
     <meta name="description"
-        content="Dindins Dona Socorro: gelados artesanais gourmet desde 1994. Sabores incríveis, qualidade reconhecida e oportunidades de franquia. Conheça nossa história e seja um parceiro.">
+        content="Dindins Dona Socorro: gelados artesanais gourmet desde 1994. Sabores incríveis, qualidade reconhecida e oportunidades de franquia.">
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Favicons -->
+    <link href="./assets/Versão redonda - marca d_agua.png" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="style.css" rel="stylesheet">
+
+    <!--
+      iPortfolio Template - BootstrapMade.com
+      Adaptado para Dindins Dona Socorro
+      Template Original: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    -->
 </head>
 
-<body tabindex="0">
+<body class="index-page">
 
-    <!-- ============ NAVBAR ============ -->
-    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top main-navbar">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#hero">
-                <img src="./assets/Logotipo.png" alt="Dindins Dona Socorro" class="navbar-logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <i class="bi bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sabores">Sabores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#franquia">Franquia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-brand btn-sm" href="#franquia">
-                            <i class="bi bi-stars me-1"></i>Seja Franqueado
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- ======= Header / Sidebar ======= -->
+    <header id="header" class="header dark-background d-flex flex-column">
 
-    <!-- ============ HERO SECTION ============ -->
-    <header class="hero-section" id="hero">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-3">
-            <div class="row align-items-center min-vh-100 py-5">
-                <div class="col-lg-7 text-center text-lg-start" data-aos="fade-right" data-aos-duration="1000">
-                    <span class="hero-badge">
-                        <i class="bi bi-award-fill me-1"></i> Tradição desde 1994
-                    </span>
-                    <h1 class="hero-title">
-                        Apaixonados por <span class="text-brand">Dindins</span>!
-                    </h1>
-                    <p class="hero-subtitle">
-                        Gelados artesanais gourmet feitos com carinho, ingredientes selecionados
-                        e sabores que aquecem a memória afetiva.
-                    </p>
-                    <div class="hero-actions mt-4">
-                        <a href="#sabores" class="btn btn-brand btn-lg me-2 mb-2">
-                            <i class="bi bi-cup-straw me-2"></i>Ver Sabores
-                        </a>
-                        <a href="#franquia" class="btn btn-outline-light btn-lg mb-2">
-                            <i class="bi bi-briefcase-fill me-2"></i>Seja Parceiro
-                        </a>
-                    </div>
-                    <div class="hero-stats mt-5">
-                        <div class="stat-item">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Anos de história</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Artesanal</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Sabores gourmet</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="hero-logo-wrapper">
-                        <img src="./assets/Versão redonda - marca d_agua.png" alt="Selo Dona Socorro"
-                            class="hero-logo img-fluid">
-                    </div>
-                </div>
-            </div>
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="profile-img">
+            <img src="./assets/Versão redonda - marca d_agua.png" alt="Dona Socorro" class="img-fluid rounded-circle">
         </div>
-        <a href="#sobre" class="scroll-down">
-            <i class="bi bi-chevron-double-down"></i>
+
+        <a href="#hero" class="logo d-flex align-items-center justify-content-center">
+            <h1 class="sitename">Dona Socorro</h1>
         </a>
+
+        <div class="social-links text-center">
+            <a href="https://instagram.com/ddonasocorro" target="_blank" rel="noopener" class="instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@donasocorro402" target="_blank" rel="noopener" class="tiktok">
+                <i class="bi bi-tiktok"></i>
+            </a>
+        </div>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> <span>Início</span></a></li>
+                <li><a href="#about"><i class="bi bi-person navicon"></i> <span>Sobre</span></a></li>
+                <li><a href="#services"><i class="bi bi-stars navicon"></i> <span>Diferenciais</span></a></li>
+                <li><a href="#portfolio"><i class="bi bi-cup-straw navicon"></i> <span>Sabores</span></a></li>
+                <li><a href="#franquia"><i class="bi bi-briefcase navicon"></i> <span>Franquia</span></a></li>
+                <li><a href="#contact"><i class="bi bi-envelope navicon"></i> <span>Contato</span></a></li>
+            </ul>
+        </nav>
+
     </header>
 
-    <!-- ============ SOBRE A EMPRESA ============ -->
-    <section id="sobre" class="section-padding">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <span class="section-subtitle">Quem Somos</span>
-                <h2 class="section-title">Uma história de <span class="text-brand">paixão</span> e qualidade</h2>
-                <div class="section-divider"></div>
+    <main class="main">
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="hero section dark-background">
+
+            <img src="./assets/Pattern (1).png" alt="" data-aos="fade-in">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <h2>Dindins Dona Socorro</h2>
+                <p>Apaixonados por <span class="typed"
+                        data-typed-items="Dindins!, qualidade!, sabores gourmet!, memória afetiva!"></span></p>
             </div>
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="about-image-wrapper">
-                        <img src="./assets/Logotipo - marca d_agua.png" alt="Sobre a Dona Socorro"
-                            class="img-fluid rounded-4 about-main-img">
-                        <div class="about-badge">
-                            <span class="badge-year">1994</span>
-                            <span class="badge-text">Desde</span>
-                        </div>
+
+        </section>
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about section">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Sobre a Empresa</h2>
+                <p>Uma história de paixão e qualidade desde 1994</p>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-4">
+                        <img src="./assets/Logotipo - marca d_agua.png" class="img-fluid rounded-4 " alt="Dona Socorro">
                     </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <p class="lead-text">
-                        Os Dindins Dona Socorro estão no mercado desde <strong>1994</strong>, fruto da
-                        visão empreendedora de nossa matriarca <strong>Dona Socorro</strong>.
-                    </p>
-                    <p>
-                        Somos referência de sucesso no segmento de dindins, um produto que aguça a memória
-                        afetiva e conquista o mercado pela qualidade oferecida com muito profissionalismo
-                        junto aos nossos clientes.
-                    </p>
-                    <p>
-                        Investimos constantemente no lançamento de novos sabores, contando com insumos de
-                        alta qualidade. A nossa prioridade sempre foi, e será, a excelência em nossas
-                        matérias-primas &mdash; garantindo segurança nos produtos e mais sabor para os nossos
-                        consumidores.
-                    </p>
-                    <div class="about-features mt-4">
-                        <div class="feature-item">
-                            <i class="bi bi-patch-check-fill text-brand"></i>
-                            <span>100% Artesanais</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="bi bi-heart-fill text-brand"></i>
-                            <span>Memória Afetiva</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="bi bi-award-fill text-brand"></i>
-                            <span>Qualidade Premium</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ DIFERENCIAIS ============ -->
-    <section id="diferenciais" class="section-padding pattern-bg-1">
-        <div class="pattern-overlay"></div>
-        <div class="container position-relative z-3">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <span class="section-subtitle">Nossos Diferenciais</span>
-                <h2 class="section-title text-white">Por que escolher a <span class="text-brand">Dona Socorro</span>?
-                </h2>
-                <div class="section-divider"></div>
-                <p class="section-lead text-white-50">
-                    Os Din Din da Dona Socorro são garantia de qualidade, proporcionando uma
-                    experiência afetiva com sabores incríveis para consumidores e parceiros.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="differential-card">
-                        <div class="diff-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h3>Confiança e Credibilidade</h3>
-                        <p>Mais de 30 anos no mercado construindo uma marca sólida e reconhecida
-                            pela excelência em gelados artesanais.</p>
-                        <span class="diff-tag">Desde 1994</span>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="differential-card">
-                        <div class="diff-icon">
-                            <i class="bi bi-headset"></i>
-                        </div>
-                        <h3>Atendimento Diferenciado</h3>
-                        <p>Suporte próximo e personalizado para cada cliente e parceiro, garantindo
-                            uma experiência única em cada relacionamento.</p>
-                        <span class="diff-tag">Atenção exclusiva</span>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="differential-card">
-                        <div class="diff-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <h3>Excelente Margem de Lucro</h3>
-                        <p>Produtos com alto giro e ótima rentabilidade, perfeitos para quem busca
-                            um negócio promissor e sustentável.</p>
-                        <span class="diff-tag">Negócio rentável</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ SABORES ============ -->
-    <section id="sabores" class="section-padding">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <span class="section-subtitle">Nossos Sabores</span>
-                <h2 class="section-title">Sabores que <span class="text-brand">conquistam</span></h2>
-                <div class="section-divider"></div>
-                <p class="section-lead">
-                    Cada dindin é uma explosão de sabor. Conheça nossas criações gourmet
-                    feitas com ingredientes selecionados e muito carinho.
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <!-- Banoffee -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Banoffee.jpg" alt="Dindin Banoffee" class="flavor-img">
-                            <span class="flavor-emoji">🍌</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Banoffee</h3>
-                            <p>Uma explosão de texturas! Bananas frescas selecionadas, doce de leite
-                                cremoso, toque de chantilly e pedacinhos de biscoito. Sobremesa
-                                sofisticada e nostálgica em forma de dindin.</p>
-                            <span class="flavor-tag">Gourmet</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Coco -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Coco.jpg" alt="Dindin de Coco" class="flavor-img">
-                            <span class="flavor-emoji">🥥</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Coco</h3>
-                            <p>Uma experiência gelada de puro coco natural com leite, creme de leite,
-                                leite condensado e muito carinho. O sabor de infância com toque
-                                gourmet incrivelmente cremoso.</p>
-                            <span class="flavor-tag">Clássico</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Coco com Abacaxi -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Dindin D Socorro - Coco com abacaxi.jpg"
-                                alt="Dindin de Coco com Abacaxi" class="flavor-img">
-                            <span class="flavor-emoji">🍍</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Coco com Abacaxi</h3>
-                            <p>A união perfeita do frescor tropical! A cremosidade irresistível do coco
-                                natural com pedaços suculentos de abacaxi selecionado. O sabor das
-                                férias em um saquinho!</p>
-                            <span class="flavor-tag">Tropical</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- KitKat -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Kitkat-1.jpg" alt="Dindin de KitKat" class="flavor-img">
-                            <span class="flavor-emoji">🍫</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">KitKat</h3>
-                            <p>Para os apaixonados por chocolate! Base ultra cremosa combinada com o
-                                autêntico KitKat. O segredo está na textura: a cremosidade do dindin
-                                com a crocância inconfundível do wafer.</p>
-                            <span class="flavor-tag">Chocolate</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Mousse de Limão -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Mousse de Limão.jpg" alt="Dindin Mousse de Limão" class="flavor-img">
-                            <span class="flavor-emoji">🍋</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Mousse de Limão</h3>
-                            <p>O equilíbrio perfeito entre doce e cítrico! Inspirado na clássica torta
-                                de limão, mousse levinho e refrescante com suco puro da fruta e
-                                raspas de limão.</p>
-                            <span class="flavor-tag">Refrescante</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Mousse de Maracujá -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Mousse de Maracujá.jpg" alt="Dindin Mousse de Maracujá"
-                                class="flavor-img">
-                            <span class="flavor-emoji">💛</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Mousse de Maracujá</h3>
-                            <p>Intenso, cremoso e absurdamente refrescante. O sabor marcante da fruta
-                                natural em um mousse aveludado que derrete na boca. Doçura certa
-                                com aquele azedinho irresistível.</p>
-                            <span class="flavor-tag">Tropical</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Mousse de Morango -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Mousse de Morango.jpg" alt="Dindin Mousse de Morango"
-                                class="flavor-img">
-                            <span class="flavor-emoji">🍓</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Mousse de Morango</h3>
-                            <p>Feito com morangos frescos de verdade! Textura leve e aerada de mousse
-                                caseiro, combinando a suavidade do leite com o sabor vibrante e
-                                natural do morango.</p>
-                            <span class="flavor-tag">Frutado</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Ninho com Nutella -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <article class="flavor-card flavor-featured">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Ninho com Nutella.jpg" alt="Dindin Ninho com Nutella" class="flavor-img">
-                            <span class="flavor-emoji">🥛</span>
-                            <span class="flavor-best">⭐ Mais pedido</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Ninho com Nutella</h3>
-                            <p>O queridinho absoluto! A combinação perfeita entre o sabor nobre e
-                                cremoso do leite Ninho com generosas camadas da autêntica Nutella.
-                                O verdadeiro significado de dindin gourmet!</p>
-                            <span class="flavor-tag">Best-seller</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Oreo -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Oreo.jpg" alt="Dindin de Oreo" class="flavor-img">
-                            <span class="flavor-emoji">🍪</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Oreo</h3>
-                            <p>O clássico dos biscoitos em sua versão mais gelada e cremosa! Base de
-                                leite aveludada recheada com pedacinhos crocantes de biscoito Oreo.
-                                Contraste perfeito entre cremosidade e crocância.</p>
-                            <span class="flavor-tag">Crocante</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Pudim -->
-                <div class="col-lg-4 col-md-6 offset-lg-4" data-aos="fade-up" data-aos-delay="500">
-                    <article class="flavor-card">
-                        <div class="flavor-img-wrapper">
-                            <img src="./assets/Pudim.jpg" alt="Dindin de Pudim" class="flavor-img">
-                            <span class="flavor-emoji">🍮</span>
-                        </div>
-                        <div class="flavor-body">
-                            <h3 class="flavor-title">Pudim</h3>
-                            <p>A sobremesa mais amada do Brasil na versão mais refrescante! Base ultra
-                                cremosa com o sabor tradicional do pudim de leite condensado,
-                                finalizada com calda de caramelo artesanal.</p>
-                            <span class="flavor-tag">Tradicional</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ FRANQUIA / CTA ============ -->
-    <section id="franquia" class="section-padding pattern-bg-2">
-        <div class="pattern-overlay-light"></div>
-        <div class="container position-relative z-3">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <span class="section-subtitle">Oportunidade</span>
-                    <h2 class="section-title">Seja um <span class="text-brand">franqueado</span> Dona Socorro</h2>
-                    <p class="lead-text mt-3">
-                        Faça parte de uma marca consolidada, com mais de 30 anos de tradição e
-                        produtos que conquistam o paladar do brasileiro.
-                    </p>
-                    <ul class="franchise-list">
-                        <li>
-                            <i class="bi bi-check-circle-fill text-brand"></i>
-                            <div>
-                                <strong>Marca reconhecida</strong>
-                                <span>Tradição e credibilidade desde 1994.</span>
+                    <div class="col-lg-8 content">
+                        <h2>Apaixonados por Dindins!</h2>
+                        <p class="fst-italic py-3">
+                            Os Dindins Dona Socorro estão no mercado desde 1994 com a visão empreendedora
+                            de nossa matriarca Dona Socorro e é referência de sucesso no segmento de dindins,
+                            um produto que aguça nossa memória afetiva.
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Fundação:</strong> <span>1994</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Produção:</strong> <span>100% Artesanal</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Segmento:</strong> <span>Gelados Gourmet</span></li>
+                                </ul>
                             </div>
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill text-brand"></i>
-                            <div>
-                                <strong>Produto de alta qualidade</strong>
-                                <span>Insumos selecionados e processo 100% artesanal.</span>
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Sabores:</strong> <span>10+ opções</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong> <span>@ddonasocorro</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>TikTok:</strong> <span>@donasocorro402</span></li>
+                                </ul>
                             </div>
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill text-brand"></i>
-                            <div>
-                                <strong>Excelente margem de lucro</strong>
-                                <span>Rentabilidade comprovada no segmento de gelados.</span>
+                        </div>
+                        <p class="py-3">
+                            Uma história que vem conquistando o mercado pela qualidade oferecida em nossos
+                            produtos com muito profissionalismo junto aos nossos clientes. Investimos
+                            constantemente no lançamento de novos sabores, contando com insumos de alta
+                            qualidade. A nossa prioridade sempre foi, e será, a qualidade em nossas matérias
+                            primas &mdash; garantindo segurança em nossos produtos e mais sabor para os nossos
+                            consumidores, fazendo com que os Dindins Dona Socorro tenham excelência no
+                            mercado de linhas de gelados.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======= Services / Diferenciais Section ======= -->
+        <section id="services" class="services section">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Diferenciais</h2>
+                <p>Os Din Din da Dona Socorro são garantia de qualidade em seus produtos, além de
+                    proporcionarem uma experiência afetiva com sabores incríveis para seus consumidores e
+                    parceiros. Nossos Din Dins são 100% artesanais e produzidos de forma muito criteriosa.</p>
+            </div>
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-shield-check"></i>
                             </div>
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill text-brand"></i>
-                            <div>
-                                <strong>Suporte completo</strong>
-                                <span>Atendimento diferenciado para parceiros e franqueados.</span>
+                            <h4><a href="#" class="stretched-link">Confiança e Credibilidade</a></h4>
+                            <p>Mais de 30 anos no mercado construindo uma marca sólida e reconhecida pela
+                                excelência em gelados artesanais. Tradição desde 1994.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-headset"></i>
                             </div>
-                        </li>
+                            <h4><a href="#" class="stretched-link">Atendimento Diferenciado</a></h4>
+                            <p>Suporte próximo e personalizado para cada cliente e parceiro, garantindo
+                                uma experiência única em cada relacionamento.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <h4><a href="#" class="stretched-link">Excelente Margem de Lucro</a></h4>
+                            <p>Produtos com alto giro e ótima rentabilidade, perfeitos para quem busca
+                                um negócio promissor e sustentável.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======= Portfolio / Sabores Section ======= -->
+        <section id="portfolio" class="portfolio section">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Sabores</h2>
+                <p>Cada dindin é uma explosão de sabor. Conheça nossas criações gourmet feitas com
+                    ingredientes selecionados e muito carinho.</p>
+            </div>
+
+            <div class="container">
+
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">Todos</li>
+                        <li data-filter=".filter-chocolate">Chocolate</li>
+                        <li data-filter=".filter-frutas">Frutas</li>
+                        <li data-filter=".filter-classico">Clássicos</li>
                     </ul>
-                    <a href="#contato" class="btn btn-brand btn-lg mt-3">
-                        <i class="bi bi-send-fill me-2"></i>Quero ser parceiro
-                    </a>
+
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-classico">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Banoffee.jpg" class="img-fluid" alt="Banoffee">
+                                <div class="portfolio-info">
+                                    <h4>🍌 Banoffee</h4>
+                                    <p>Uma explosão de texturas! Bananas frescas selecionadas, doce de leite
+                                        cremoso, toque de chantilly e pedacinhos de biscoito. Sobremesa
+                                        sofisticada e nostálgica em forma de dindin.</p>
+                                    <a href="./assets/Banoffee.jpg" title="Banoffee" data-gallery="portfolio-gallery-banoffee"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-classico">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Coco.jpg" class="img-fluid" alt="Coco">
+                                <div class="portfolio-info">
+                                    <h4>🥥 Coco</h4>
+                                    <p>Uma experiência gelada de puro coco natural com leite, creme de leite,
+                                        leite condensado e muito carinho. Sabor de infância com toque gourmet
+                                        incrivelmente cremoso.</p>
+                                    <a href="./assets/Coco.jpg" title="Coco" data-gallery="portfolio-gallery-coco"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frutas">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Dindin D Socorro - Coco com abacaxi.jpg" class="img-fluid"
+                                    alt="Coco com Abacaxi">
+                                <div class="portfolio-info">
+                                    <h4>🥥🍍 Coco com Abacaxi</h4>
+                                    <p>A união perfeita do frescor tropical! Cremosidade irresistível do coco
+                                        natural com pedaços suculentos de abacaxi selecionado. O sabor das
+                                        férias em um saquinho!</p>
+                                    <a href="./assets/Dindin D Socorro - Coco com abacaxi.jpg" title="Coco com Abacaxi"
+                                        data-gallery="portfolio-gallery-cocoabacaxi" class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-chocolate">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Kitkat-1.jpg" class="img-fluid" alt="KitKat">
+                                <div class="portfolio-info">
+                                    <h4>🍫 KitKat</h4>
+                                    <p>Para os apaixonados por chocolate! Base ultra cremosa combinada com o
+                                        autêntico KitKat. A cremosidade do dindin com a crocância
+                                        inconfundível do wafer.</p>
+                                    <a href="./assets/Kitkat-1.jpg" title="KitKat" data-gallery="portfolio-gallery-kitkat"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frutas">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Mousse de Limão.jpg" class="img-fluid" alt="Mousse de Limão">
+                                <div class="portfolio-info">
+                                    <h4>🍋 Mousse de Limão</h4>
+                                    <p>O equilíbrio perfeito entre doce e cítrico! Inspirado na clássica
+                                        torta de limão, mousse levinho e refrescante com suco puro da fruta
+                                        e raspas de limão.</p>
+                                    <a href="./assets/Mousse de Limão.jpg" title="Mousse de Limão"
+                                        data-gallery="portfolio-gallery-limao" class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frutas">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Mousse de Maracujá.jpg" class="img-fluid" alt="Mousse de Maracujá">
+                                <div class="portfolio-info">
+                                    <h4>💛 Mousse de Maracujá</h4>
+                                    <p>Intenso, cremoso e absurdamente refrescante. Sabor marcante da fruta
+                                        natural em um mousse aveludado que derrete na boca. Doçura certa
+                                        com aquele azedinho irresistível.</p>
+                                    <a href="./assets/Mousse de Maracujá.jpg" title="Mousse de Maracujá"
+                                        data-gallery="portfolio-gallery-maracuja" class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frutas">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Mousse de Morango.jpg" class="img-fluid" alt="Mousse de Morango">
+                                <div class="portfolio-info">
+                                    <h4>🍓 Mousse de Morango</h4>
+                                    <p>Feito com morangos frescos de verdade! Textura leve e aerada de mousse
+                                        caseiro, combinando a suavidade do leite com o sabor vibrante e
+                                        natural do morango.</p>
+                                    <a href="./assets/Mousse de Morango.jpg" title="Mousse de Morango"
+                                        data-gallery="portfolio-gallery-morango" class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-chocolate">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Ninho com Nutella.jpg" class="img-fluid" alt="Ninho com Nutella">
+                                <div class="portfolio-info">
+                                    <h4>🥛 Ninho com Nutella</h4>
+                                    <p>O queridinho absoluto! Combinação perfeita entre o sabor nobre e
+                                        cremoso do leite Ninho com generosas camadas da autêntica Nutella.
+                                        O verdadeiro significado de dindin gourmet!</p>
+                                    <a href="./assets/Ninho com Nutella.jpg" title="Ninho com Nutella"
+                                        data-gallery="portfolio-gallery-ninho" class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-chocolate">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Oreo.jpg" class="img-fluid" alt="Oreo">
+                                <div class="portfolio-info">
+                                    <h4>🍪 Oreo</h4>
+                                    <p>O clássico dos biscoitos em sua versão mais gelada e cremosa! Base de
+                                        leite aveludada recheada com pedacinhos crocantes de biscoito Oreo.
+                                        Contraste perfeito entre cremosidade e crocância.</p>
+                                    <a href="./assets/Oreo.jpg" title="Oreo" data-gallery="portfolio-gallery-oreo"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-classico">
+                            <div class="portfolio-content h-100">
+                                <img src="./assets/Pudim.jpg" class="img-fluid" alt="Pudim">
+                                <div class="portfolio-info">
+                                    <h4>🍮 Pudim</h4>
+                                    <p>A sobremesa mais amada do Brasil na versão mais refrescante! Base
+                                        ultra cremosa com o sabor tradicional do pudim de leite condensado,
+                                        finalizada com calda de caramelo artesanal.</p>
+                                    <a href="./assets/Pudim.jpg" title="Pudim" data-gallery="portfolio-gallery-pudim"
+                                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="col-lg-6 text-center" data-aos="fade-left">
-                    <div class="franchise-card">
-                        <img src="./assets/Logotipo.png" alt="Dona Socorro" class="franchise-logo">
-                        <h3 class="mt-3">Junte-se à família</h3>
-                        <p class="text-muted">Dona Socorro</p>
-                        <div class="franchise-stats">
-                            <div>
-                                <span class="num">30+</span>
-                                <span class="label">Anos de história</span>
+
+            </div>
+
+        </section>
+
+        <!-- ======= Franquia Section ======= -->
+        <section id="franquia" class="franquia section">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Franquia</h2>
+                <p>Seja um franqueado Dona Socorro e faça parte de uma marca consolidada</p>
+            </div>
+
+            <div class="container">
+
+                <div class="row gy-4 align-items-center">
+
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Junte-se à família Dona Socorro</h3>
+                        <p class="fst-italic">
+                            Faça parte de uma marca consolidada, com mais de 30 anos de tradição e produtos
+                            que conquistam o paladar do brasileiro.
+                        </p>
+                        <ul class="franquia-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <strong>Marca reconhecida</strong>
+                                    <span>Tradição e credibilidade desde 1994.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <strong>Produto de alta qualidade</strong>
+                                    <span>Insumos selecionados e processo 100% artesanal.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <strong>Excelente margem de lucro</strong>
+                                    <span>Rentabilidade comprovada no segmento de gelados.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <strong>Suporte completo</strong>
+                                    <span>Atendimento diferenciado para parceiros e franqueados.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
+                        <div class="franquia-card">
+                            <img src="./assets/Logotipo.png" alt="Dona Socorro" class="franquia-logo">
+                            <h4 class="mt-3">Quero ser parceiro</h4>
+                            <p>Dona Socorro</p>
+                            <div class="franquia-stats">
+                                <div>
+                                    <span class="num">30+</span>
+                                    <span class="label">Anos de história</span>
+                                </div>
+                                <div>
+                                    <span class="num">10+</span>
+                                    <span class="label">Sabores gourmet</span>
+                                </div>
+                                <div>
+                                    <span class="num">100%</span>
+                                    <span class="label">Artesanal</span>
+                                </div>
                             </div>
-                            <div>
-                                <span class="num">10+</span>
-                                <span class="label">Sabores gourmet</span>
-                            </div>
-                            <div>
-                                <span class="num">100%</span>
-                                <span class="label">Artesanal</span>
-                            </div>
+                            <a href="#contact" class="btn-get-started mt-4">
+                                <i class="bi bi-send-fill me-2"></i>Entre em contato
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ CONTATO ============ -->
-    <section id="contato" class="section-padding">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <span class="section-subtitle">Fale com a gente</span>
-                <h2 class="section-title">Entre em <span class="text-brand">contato</span></h2>
-                <div class="section-divider"></div>
-                <p class="section-lead">
-                    Siga nossas redes sociais e fique por dentro dos novos sabores,
-                    promoções e oportunidades.
-                </p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-5" data-aos="zoom-in" data-aos-delay="100">
-                    <a href="https://instagram.com/ddonasocorro" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon contact-icon-ig">
-                            <i class="bi bi-instagram"></i>
-                        </div>
-                        <h3>Instagram</h3>
-                        <p class="contact-handle">@ddonasocorro</p>
-                        <span class="contact-cta">Seguir no Instagram <i class="bi bi-arrow-right"></i></span>
-                    </a>
                 </div>
-                <div class="col-md-5" data-aos="zoom-in" data-aos-delay="200">
-                    <a href="https://tiktok.com/@donasocorro402" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon contact-icon-tk">
-                            <i class="bi bi-tiktok"></i>
-                        </div>
-                        <h3>TikTok</h3>
-                        <p class="contact-handle">@donasocorro402</p>
-                        <span class="contact-cta">Seguir no TikTok <i class="bi bi-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-4 text-center text-md-start">
-                    <img src="./assets/Versão redonda - marca d_agua.png" alt="Dona Socorro" class="footer-logo">
-                    <p class="mt-3 mb-0 text-white-50 small">Apaixonados por dindins desde 1994.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="footer-socials">
-                        <a href="https://instagram.com/ddonasocorro" target="_blank" rel="noopener"
-                            aria-label="Instagram">
+            </div>
+
+        </section>
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact section">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contato</h2>
+                <p>Siga nossas redes sociais e fique por dentro dos novos sabores, promoções e
+                    oportunidades de franquia.</p>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4 justify-content-center">
+
+                    <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://instagram.com/ddonasocorro" target="_blank" rel="noopener" class="info-item">
                             <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="https://tiktok.com/@donasocorro402" target="_blank" rel="noopener" aria-label="TikTok">
-                            <i class="bi bi-tiktok"></i>
+                            <h3>Instagram</h3>
+                            <p>@ddonasocorro</p>
                         </a>
                     </div>
+
+                    <div class="col-md-5" data-aos="fade-up" data-aos-delay="300">
+                        <a href="https://tiktok.com/@donasocorro402" target="_blank" rel="noopener" class="info-item">
+                            <i class="bi bi-tiktok"></i>
+                            <h3>TikTok</h3>
+                            <p>@donasocorro402</p>
+                        </a>
+                    </div>
+
                 </div>
-                <div class="col-md-4 text-center text-md-end">
-                    <p class="mb-0 text-white-50 small">
-                        &copy; <span id="year"></span> Dindins Dona Socorro <br>
-                        Todos os direitos reservados.
-                    </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer position-relative dark-background">
+        <div class="container">
+            <h3 class="sitename">Dindins Dona Socorro</h3>
+            <p>Apaixonados por dindins desde 1994.</p>
+            <div class="social-links d-flex justify-content-center">
+                <a href="https://instagram.com/ddonasocorro" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+                <a href="https://tiktok.com/@donasocorro402" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i></a>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <span>&copy;</span>
+                    <strong class="px-1 sitename">Dindins Dona Socorro</strong>
+                    <span>Todos os direitos reservados</span>
+                </div>
+                <div class="credits">
+                    Template baseado em
+                    <a href="https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/"
+                        target="_blank" rel="noopener">iPortfolio</a>
+                    by BootstrapMade
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- ============ SCRIPTS ============ -->
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- Main JS File -->
     <script src="app.js"></script>
+
 </body>
 
 </html>

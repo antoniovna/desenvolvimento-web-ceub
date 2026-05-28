@@ -1,71 +1,139 @@
-// ===== AOS init =====
-AOS.init({
-    once: true,
-    duration: 800,
-    easing: 'ease-out-cubic',
-    offset: 80
-});
+(function () {
+    "use strict";
 
-// ===== Navbar: classe ao rolar =====
-const navbar = document.getElementById('mainNav');
-const toggleNavbarScroll = () => {
-    if (window.scrollY > 40) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    /**
+     * Header / Sidebar toggle (mobile)
+     */
+    const headerToggleBtn = document.querySelector('.header-toggle');
+
+    function headerToggle() {
+        document.querySelector('#header').classList.toggle('header-show');
+        headerToggleBtn.classList.toggle('bi-list');
+        headerToggleBtn.classList.toggle('bi-x');
     }
-};
-window.addEventListener('scroll', toggleNavbarScroll, { passive: true });
-toggleNavbarScroll();
+    if (headerToggleBtn) {
+        headerToggleBtn.addEventListener('click', headerToggle);
+    }
 
-// ===== Scrollspy customizado (IntersectionObserver) =====
-const sections = document.querySelectorAll('section[id], header[id]');
-const navLinks = document.querySelectorAll('#navMenu .nav-link');
-
-const setActiveLink = (id) => {
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === `#${id}`) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+    /**
+     * Fecha sidebar mobile ao clicar em um item do menu
+     */
+    document.querySelectorAll('#navmenu a').forEach(navmenu => {
+        navmenu.addEventListener('click', () => {
+            if (document.querySelector('.header-show')) {
+                headerToggle();
+            }
+        });
     });
-};
 
-// Observa cada seção e ativa o link correspondente quando ela
-// estiver ocupando a faixa central da viewport (abaixo da navbar).
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
+
+    /**
+     * Botão "voltar ao topo"
+     */
+    let scrollTop = document.querySelector('.scroll-top');
+
+    function toggleScrollTop() {
+        if (scrollTop) {
+            window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
         }
+    }
+    if (scrollTop) {
+        scrollTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    window.addEventListener('load', toggleScrollTop);
+    document.addEventListener('scroll', toggleScrollTop);
+
+    /**
+     * AOS
+     */
+    window.addEventListener('load', () => {
+        AOS.init({
+            duration: 600,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
     });
-}, {
-    // topo descontando a navbar (~90px) e bottom para dar prioridade
-    // à seção que está ocupando o centro da tela
-    rootMargin: '-90px 0px -55% 0px',
-    threshold: 0
-});
 
-sections.forEach(section => observer.observe(section));
+    /**
+     * Typed.js (efeito de digitação no hero)
+     */
+    const selectTyped = document.querySelector('.typed');
+    if (selectTyped) {
+        let typed_strings = selectTyped.getAttribute('data-typed-items');
+        typed_strings = typed_strings.split(',');
+        new Typed('.typed', {
+            strings: typed_strings,
+            loop: true,
+            typeSpeed: 80,
+            backSpeed: 40,
+            backDelay: 1800
+        });
+    }
 
-// Garante que ao chegar no topo o "Início" fique destacado
-window.addEventListener('scroll', () => {
-    if (window.scrollY < 100) setActiveLink('hero');
-}, { passive: true });
-
-// ===== Fechar menu mobile ao clicar em link =====
-const allNavLinks = document.querySelectorAll('#navMenu .nav-link, #navMenu .btn-brand');
-const navCollapse = document.getElementById('navMenu');
-allNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navCollapse.classList.contains('show')) {
-            new bootstrap.Collapse(navCollapse).hide();
-        }
+    /**
+     * GLightbox (lightbox para imagens dos sabores)
+     */
+    const glightbox = GLightbox({
+        selector: '.glightbox'
     });
-});
 
-// ===== Ano no footer =====
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+    /**
+     * Isotope (filtros do portfolio / sabores)
+     */
+    document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
+        let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+        let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+        let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+        let initIsotope;
+        imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
+            initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+                itemSelector: '.isotope-item',
+                layoutMode: layout,
+                filter: filter,
+                sortBy: sort
+            });
+        });
+
+        isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+            filters.addEventListener('click', function () {
+                isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+                this.classList.add('filter-active');
+                initIsotope.arrange({
+                    filter: this.getAttribute('data-filter')
+                });
+                if (typeof aosInit === 'function') {
+                    aosInit();
+                }
+            }, false);
+        });
+    });
+
+    /**
+     * Scrollspy (Navmenu - destaca a seção atual)
+     */
+    let navmenulinks = document.querySelectorAll('.navmenu a');
+
+    function navmenuScrollspy() {
+        navmenulinks.forEach(navmenulink => {
+            if (!navmenulink.hash) return;
+            let section = document.querySelector(navmenulink.hash);
+            if (!section) return;
+            let position = window.scrollY + 200;
+            if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+                document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+                navmenulink.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('load', navmenuScrollspy);
+    document.addEventListener('scroll', navmenuScrollspy);
+
+})();
