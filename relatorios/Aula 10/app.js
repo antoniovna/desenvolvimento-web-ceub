@@ -161,7 +161,6 @@ function renderStadiums() {
                         <div class="stadium-name">${stadium.name}</div>
                         <div class="stadium-city">${stadium.city}</div>
                     </div>
-                    <img src="${stadium.flag_url}" alt="Bandeira ${stadium.city}" class="stadium-country-flag">
                 </div>
                 <div class="stadium-card-body">
                     <div class="stadium-detail">
