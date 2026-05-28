@@ -159,3 +159,208 @@ p {
     margin-bottom: 0;
     font-size: 0.95rem;
 }
+
+/* ===== Hero Block ===== */
+.hero-block {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-block::before {
+    content: "";
+    position: absolute;
+    top: -60%;
+    right: -20%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.25), transparent 70%);
+    border-radius: 50%;
+}
+
+.hero-block > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-block h1 {
+    color: #fff;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.hero-tag {
+    display: inline-block;
+    background-color: rgba(52, 152, 219, 0.18);
+    color: #5dade2;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(52, 152, 219, 0.35);
+}
+
+.hero-subtitle {
+    color: #bdc3c7;
+    font-size: 1.1rem;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.hero-subtitle strong {
+    color: #fff;
+}
+
+/* ===== Profile Hero (avatar) ===== */
+.profile-hero .profile-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);
+    border: 4px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Content Blocks ===== */
+.content-block {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0.5rem 0;
+}
+
+.content-block:last-child {
+    margin-bottom: 0;
+}
+
+.block-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+}
+
+.block-text {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: left;
+    max-width: 880px;
+}
+
+.block-text strong {
+    color: #2c3e50;
+}
+
+.highlight-block {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+}
+
+.highlight-block .block-title {
+    margin-top: 0;
+}
+
+/* ===== Tech Chips ===== */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.tech-chip {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #dfe6e9;
+    transition: all 0.25s ease;
+}
+
+.tech-chip:hover {
+    background-color: #3498db;
+    color: #fff;
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* ===== Info Grid ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.info-item {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: all 0.25s ease;
+}
+
+.info-item:hover {
+    border-color: #3498db;
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.12);
+    transform: translateY(-2px);
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.info-value {
+    font-size: 1.05rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.highlight-block .info-item {
+    background-color: #fff;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 600px) {
+    .hero-block {
+        padding: 2rem 1.25rem;
+    }
+    .hero-block h1 {
+        font-size: 1.7rem;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .block-title {
+        font-size: 1.25rem;
+    }
+}
