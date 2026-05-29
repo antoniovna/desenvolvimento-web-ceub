@@ -7,22 +7,22 @@ async function loadData() {
     try {
         const teamsRes = await fetch('./json/worldcup.teams_meta.json');
         const teamsData = await teamsRes.json();
-        
+
         const matchesRes = await fetch('./json/worldcup.json');
         const matchesData = await matchesRes.json();
-        
+
         const stadiumsRes = await fetch('./json/worldcup.stadiums.json');
         const stadiumsData = await stadiumsRes.json();
-        
+
         processTeams(teamsData);
         processMatches(matchesData.matches);
         processStadiums(stadiumsData.stadiums);
-        
+
         renderGroups();
         renderBracket();
         renderStadiums();
         renderTeams();
-        
+
         // Timeout para garantir que o DOM renderizou completamente antes de inicializar o scrollspy
         setTimeout(() => {
             initScrollSpy();
@@ -46,7 +46,7 @@ function processTeams(teamsData) {
             pts: 0, pj: 3, v: 0, e: 0, d: 0, sg: 0
         };
     });
-    
+
     // Assign dummy stats to maintain layout look
     letters.forEach(letter => {
         let groupTeams = FULL_TEAMS.filter(t => t.group === letter);
@@ -56,7 +56,7 @@ function processTeams(teamsData) {
         const dArray = [0, 0, 2, 2];
         const sgArray = [3, 1, -1, -3];
         groupTeams.forEach((t, i) => {
-            if(i < 4) {
+            if (i < 4) {
                 t.pts = ptsArray[i];
                 t.v = vArray[i];
                 t.e = eArray[i];
@@ -150,9 +150,9 @@ function renderGroups() {
 // ========================================
 function renderStadiums() {
     const stadiumsContainer = document.getElementById("stadiums-container");
-    
+
     if (!stadiumsContainer) return;
-    
+
     stadiumsContainer.innerHTML = FULL_STADIUMS.map(stadium => `
         <div class="col-md-6 col-lg-4">
             <div class="stadium-card fade-in-up">
@@ -237,11 +237,11 @@ function renderBracket() {
     if (round16) {
         round16.innerHTML = r16Matches.map(m => createMatchCard(`JOGO ${m.num}`, m.date, m.team1, m.team2, "-", "-", 0)).join('');
     }
-    
+
     if (quarter) {
         quarter.innerHTML = qMatches.map(m => createMatchCard(`JOGO ${m.num}`, m.date, m.team1, m.team2, "-", "-", 0)).join('');
     }
-    
+
     if (semi) {
         semi.innerHTML = sMatches.map(m => createMatchCard(`JOGO ${m.num}`, m.date, m.team1, m.team2, "-", "-", 0)).join('');
     }
@@ -259,9 +259,25 @@ function renderBracket() {
 // ========================================
 function generateMockPlayers(teamName) {
     return [
-        { num: 1, name: "Goleiro Titular", pos: "Goleiro" },
-        { num: 10, name: "Craque do " + teamName, pos: "Meio-Campo" },
-        { num: 9, name: "Artilheiro", pos: "Atacante" }
+        { num: 0, name: `Técnico ${teamName}`, pos: "Técnico", role: "Técnico" },
+        { num: 1, name: "Goleiro Titular", pos: "Goleiro", role: "Titular" },
+        { num: 2, name: "Lateral Direito", pos: "Defensor", role: "Titular" },
+        { num: 3, name: "Zagueiro Central", pos: "Defensor", role: "Titular" },
+        { num: 4, name: "Zagueiro Líbero", pos: "Defensor", role: "Titular" },
+        { num: 6, name: "Lateral Esquerdo", pos: "Defensor", role: "Titular" },
+        { num: 5, name: "Volante", pos: "Meio-Campo", role: "Titular" },
+        { num: 8, name: "Meia Armador", pos: "Meio-Campo", role: "Titular" },
+        { num: 10, name: "Craque do " + teamName, pos: "Meio-Campo", role: "Titular" },
+        { num: 7, name: "Ponta Direita", pos: "Atacante", role: "Titular" },
+        { num: 9, name: "Artilheiro", pos: "Atacante", role: "Titular" },
+        { num: 11, name: "Ponta Esquerda", pos: "Atacante", role: "Titular" },
+        { num: 12, name: "Goleiro Reserva", pos: "Goleiro", role: "Reserva" },
+        { num: 13, name: "Zagueiro Forte", pos: "Defensor", role: "Reserva" },
+        { num: 14, name: "Meia Ofensivo", pos: "Meio-Campo", role: "Reserva" },
+        { num: 15, name: "Meia Defensivo", pos: "Meio-Campo", role: "Reserva" },
+        { num: 16, name: "Atacante Veloz", pos: "Atacante", role: "Reserva" },
+        { num: 17, name: "Lateral Polivalente", pos: "Defensor", role: "Reserva" },
+        { num: 18, name: "Jovem Promessa", pos: "Meio-Campo", role: "Reserva" }
     ];
 }
 
@@ -353,11 +369,11 @@ function initScrollSpy() {
 
     // Smooth scroll for sidebar links
     document.querySelectorAll('.sidebar-country-header, .sidebar-subitem').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetEl = document.getElementById(targetId);
-            if(targetEl) {
+            if (targetEl) {
                 targetEl.scrollIntoView({ behavior: 'smooth' });
             }
         });
@@ -373,18 +389,18 @@ function initScrollSpy() {
                 const activeNav = document.getElementById(navId);
                 if (activeNav) {
                     activeNav.classList.add('active');
-                    
+
                     // Safely scroll ONLY the sidebar, preventing the whole page from jumping
                     if (sidebar) {
                         const sidebarRect = sidebar.getBoundingClientRect();
                         const activeRect = activeNav.getBoundingClientRect();
-                        
+
                         // Calculamos a distância entre o elemento ativo e o container
                         const relativeTop = activeRect.top - sidebarRect.top;
-                        
+
                         // Posiciona o elemento no centro do sidebar visível
                         const targetScroll = sidebar.scrollTop + relativeTop - (sidebar.clientHeight / 2) + (activeRect.height / 2);
-                        
+
                         sidebar.scrollTo({
                             top: targetScroll,
                             behavior: 'smooth'
